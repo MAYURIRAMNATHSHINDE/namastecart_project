@@ -1,0 +1,149 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Almond Doe",
+      "gender": "Male",
+      "email": "john.doe@example.com",
+      "password": "123456",
+      "dob": "1990-01-01",
+      "mobile": "1234567890",
+      "location": "India",
+      "hint": "joo",
+      "profilePicture": ""
+    },
+    {
+      "id": "2",
+      "name": "Alice roy",
+      "gender": "Male",
+      "email": "alice@example.com",
+      "password": "123456",
+      "dob": "",
+      "mobile": "",
+      "location": "",
+      "hint": "",
+      "profilePicture": ""
+    },
+    {
+      "id": "3",
+      "name": "Mayuri",
+      "gender": "female",
+      "email": "mayuri@gmail.com",
+      "password": "123456",
+      "dob": "",
+      "mobile": "",
+      "location": "",
+      "hint": "",
+      "profilePicture": ""
+    }
+  ],
+  "login": [
+    {
+      "id": "1",
+      "email": "empher@gmail.com",
+      "password": "abc123"
+    },
+    {
+      "id": "2",
+      "email": "xyz@gmail.com",
+      "password": "jfn"
+    },
+    {
+      "id": "3",
+      "email": "pqr@gmail.com",
+      "password": "cbv"
+    },
+    {
+      "id": "4",
+      "email": "stu@gmail.com",
+      "password": "jhs"
+    },
+    {
+      "id": "5",
+      "email": "lmn@gmail.com",
+      "password": "123"
+    }
+  ],
+  "signup": [
+    {
+      "id": "1",
+      "name": "XYZ",
+      "gender": "female",
+      "email": "empher@gmail.com",
+      "password": "abc123",
+      "confirm-password": "abc123"
+    },
+    {
+      "id": "2",
+      "name": "ABC",
+      "gender": "male",
+      "email": "xyz@gmail.com",
+      "password": "jfn",
+      "confirm-password": "jfn"
+    },
+    {
+      "id": "6fc0",
+      "name": "Mayuri",
+      "gender": "female",
+      "email": "mayuri369@gmail.com",
+      "password": "369"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Sangria",
+      "description": "Printed Kurti",
+      "rating": 4.2,
+      "reviews": "5.1k",
+      "price": 599,
+      "originalPrice": 1499,
+      "discount": "20% OFF",
+      "image": "https://m.media-amazon.com/images/I/713RqAjX44L._AC_UL320_.jpg"
+    },
+    {
+      "id": "2",
+      "name": "KALINI",
+      "description": "Woven Design Straight Kurti",
+      "rating": 4.5,
+      "reviews": "3.8k",
+      "price": 374,
+      "originalPrice": 2499,
+      "discount": "25% OFF",
+      "image": "https://m.media-amazon.com/images/I/81vgGdFl5BL._AC_UL320_.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Wishlist",
+      "description": "Sizes: L",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 968,
+      "originalPrice": 2195,
+      "discount": "65% OFF",
+      "image": "https://images.meesho.com/images/products/174452103/tsngh_1200.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Wishlist",
+      "description": "Sizes: L",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 258,
+      "originalPrice": 2195,
+      "discount": "55% OFF",
+      "image": "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Wishlist",
+      "description": "Sizes: L",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 258,
+      "originalPrice": 2195,
+      "discount": "55% OFF",
+      "image": "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg"
+    }
+  ]
+}

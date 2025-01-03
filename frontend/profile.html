@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+        #edit-form{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+        
+        .profile-info div,
+        form label {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        
+        button#cancel-edit {
+            background-color: #999;
+        }
+        .profile-info{
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        #edit-fullname,#edit-gender,#edit-dob,#edit-mobile,#edit-location{
+            margin: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <div>
+                <strong>Full Name:</strong>
+                <span id="user-fullname">- not added -</span>
+            </div>
+            <div>
+                <strong>Gender:</strong>
+                <span id="user-gender">- not added -</span>
+            </div>
+            <div>
+                <strong>Email ID:</strong>
+                <span id="user-email">- not added -</span>
+            </div>
+            <div>
+                <strong>Date of Birth:</strong>
+                <span id="user-dob">- not added -</span>
+            </div>
+            <div>
+                <strong>Mobile Number:</strong>
+                <span id="user-mobile">- not added -</span>
+            </div>
+            <div>
+                <strong>Location:</strong>
+                <span id="user-location">- not added -</span>
+            </div>
+            <div>
+                <strong>Hint Name:</strong>
+                <span id="user-hint">- not added -</span>
+            </div>
+        </div>
+        <button id="edit-profile">Edit</button>
+    </div>
+    
+    <!-- Edit Form -->
+    <div class="container edit-container" style="display: none;">
+        <h1>Edit Profile</h1>
+        <form id="edit-form">
+            <label>
+                Full Name:
+                <input type="text" id="edit-fullname" name="fullname" required />
+            </label>
+            <label>
+                Gender:
+                <input type="text" id="edit-gender" name="gender" required />
+            </label>
+            <label>
+                Date of Birth:
+                <input type="date" id="edit-dob" name="dob" />
+            </label>
+            <label>
+                Mobile Number:
+                <input type="text" id="edit-mobile" name="mobile" />
+            </label>
+            <label>
+                Location:
+                <input type="text" id="edit-location" name="location" />
+            </label>
+            <label>
+                Hint Name:
+                <input type="text" id="edit-hint" name="hint" />
+            </label>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-edit">Cancel</button>
+        </form>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileContainer = document.querySelector(".profile-container");
+            const editContainer = document.querySelector(".edit-container");
+        
+            const loggedInUserId = localStorage.getItem('userId');  // Retrieve the user ID from localStorage
+            console.log(loggedInUserId)
+
+
+
+            const userProfile = {
+                name: "",
+                gender: "",
+                email: "",
+                dob: "",
+                mobile: "",
+                location: "",
+                hint: "",
+            };
+        
+            // Fetch the profile data
+            const populateProfile = (data) => {
+                document.getElementById("user-fullname").textContent = data.name || "- not added -";
+                document.getElementById("user-gender").textContent = data.gender || "- not added -";
+                document.getElementById("user-email").textContent = data.email || "- not added -";
+                document.getElementById("user-dob").textContent = data.dob || "- not added -";
+                document.getElementById("user-mobile").textContent = data.mobile || "- not added -";
+                document.getElementById("user-location").textContent = data.location || "- not added -";
+                document.getElementById("user-hint").textContent = data.hint || "- not added -";
+            };
+        
+            const loadProfile = async () => {
+                try {
+                    const response = await fetch(`http://localhost:3001/users/${loggedInUserId}`);
+                    console.log("Response Status:", response.status); // Check the status code
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch profile data. Status code: " + response.status);
+                    }
+                    const data = await response.json();
+                    Object.assign(userProfile, data);
+                    populateProfile(userProfile);
+                } catch (error) {
+                    console.error("Failed to load profile:", error);
+                }
+            };
+            
+        
+            const saveProfile = async (updatedProfile) => {
+                try {
+                    const response = await fetch(`http://localhost:3001/users/${loggedInUserId}`, {
+                        method: "PATCH",  // Ensure this matches the API's expectation (could be PUT)
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(updatedProfile),
+                    });
+            
+                    console.log("Response Status:", response.status); // Check the status code
+                    if (!response.ok) {
+                        throw new Error("Failed to save profile. Status code: " + response.status);
+                    }
+            
+                    Object.assign(userProfile, updatedProfile);
+                    populateProfile(userProfile);
+                } catch (error) {
+                    console.error("Failed to save profile:", error);
+                }
+            };
+            
+        
+            // Event: Edit Profile
+            document.getElementById("edit-profile").addEventListener("click", () => {
+                profileContainer.style.display = "none";
+                editContainer.style.display = "block";
+        
+                // Populate form with current data
+                document.getElementById("edit-fullname").value = userProfile.name || "";
+                document.getElementById("edit-gender").value = userProfile.gender || "";
+                document.getElementById("edit-dob").value = userProfile.dob || "";
+                document.getElementById("edit-mobile").value = userProfile.mobile || "";
+                document.getElementById("edit-location").value = userProfile.location || "";
+                document.getElementById("edit-hint").value = userProfile.hint || "";
+            });
+        
+            // Event: Save Profile
+            document.getElementById("edit-form").addEventListener("submit", (event) => {
+                event.preventDefault();
+        
+                const updatedProfile = {
+                    name: document.getElementById("edit-fullname").value,
+                    gender: document.getElementById("edit-gender").value,
+                    dob: document.getElementById("edit-dob").value,
+                    mobile: document.getElementById("edit-mobile").value,
+                    location: document.getElementById("edit-location").value,
+                    hint: document.getElementById("edit-hint").value,
+                };
+        
+                saveProfile(updatedProfile);
+        
+                profileContainer.style.display = "block";
+                editContainer.style.display = "none";
+            });
+        
+            // Event: Cancel Edit
+            document.getElementById("cancel-edit").addEventListener("click", () => {
+                profileContainer.style.display = "block";
+                editContainer.style.display = "none";
+            });
+        
+            loadProfile();
+        });
+        
+        
+    </script>
+</body>
+
+</html>

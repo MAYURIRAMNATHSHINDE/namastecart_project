@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Effects</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <style>
+        .header{
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+        }
+
+
+        .HomePage{
+            margin: 20px 90px 2px 90px;
+        }
+        .homePage img {
+            
+          
+            max-width: 100%;
+            height: auto;
+        }
+        .bank-discount {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Optional: Adds space between images */
+        }
+        
+        .bank-discount img {
+            width: 30%; /* Adjust as needed */
+            height: auto; /* Maintains aspect ratio */
+        }
+        .offer {
+            width: 100%; /* Ensure full width */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            /*gap: 10px; /* Optional: Adds space between the images */
+        }
+        
+        .offer img {
+            width: 100%; /* Make each image take up full column width */
+            height: auto; /* Maintains aspect ratio */
+        }
+        .offer img:hover {
+            transform: scale(1.1); /* Slightly enlarge the image on hover */
+            opacity: 0.8; /* Reduce opacity to 0.8 on hover */
+           
+        }        
+    </style>
+   
+</head>
+
+<body>
+
+    <header class="header"></header>
+
+    <div class="HomePage">
+
+        <div class="homePage">
+            <img src="./assets/HOMEPAGE.jpg" alt="home page">
+    
+        </div>
+    
+        <div class="bank-discount">
+            <img src="./assets/bank--discount.jpg" alt="">
+            <img src="./assets/bank--discount1.jpg" alt="">
+            <img src=".//assets/bank3.jpg" alt="">
+           
+        </div>
+        <img src="./assets/crazy-deals.jpg" alt="" style="max-width: 100%; height:auto;">
+
+        <div class="offer">
+            <img src="./assets/POSTER.jpg" alt="">
+            <img src="./assets/poster3.jpg" alt="">
+            <img src="./assets/POSTER2.jpg" alt="">
+            <img src="./assets/poster4.jpg" alt="">
+        </div>
+    </div>
+
+    <img src="./assets/BOTTOM.jpg" alt="" style="max-width: 100%; height:auto; margin:20px">
+
+
+
+    <footer class="footer-cont"></footer>
+
+
+
+        
+</body>
+<script src="./scripts/index.js" type="module"></script>
+<script src="./scripts/shutterEffect.js" type="module"></script>
+<script>
+    function redirectToLogin() {
+        window.location.href = "login.html"; // Replace with your desired URL
+    }
+</script>
+
+</html>
