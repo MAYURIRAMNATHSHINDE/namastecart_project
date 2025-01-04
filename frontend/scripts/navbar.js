@@ -6,7 +6,7 @@ export const navbar = () => {
         </div>
     
         <div class="logo">
-            <img src="./assets/Edited_Namaste Cart_just_logo.png" alt="logo image">
+            <img src="./frontend/assets/Edited_Namaste Cart_just_logo.png" alt="logo image">
             <h1><span style="color: rgb(195,100,119);">Namaste</span><span style="color: rgb(33,133,131);">Cart</span></h1>
         </div>
     
@@ -26,9 +26,9 @@ export const navbar = () => {
             </div>
              <div class="icons">
         <div class="dropdown-container">
-            <img id="login-icon" src="./assets/Login1.png" alt="login image" style="width: 25px; height:25px;" onclick="redirectToLogin()">
+            <img id="login-icon" src="./frontend/assets/Login1.png" alt="login image" style="width: 25px; height:25px;" onclick="redirectToLogin()">
             <div class="dropdownofProfile" id="dropdown-menu">
-                <a href="./profile.html">Profile</a>
+                <a href="./frontend/profile.html">Profile</a>
                 <a href="./orders.html">Orders</a>
                 <a href="./wishlist.html">Wishlist</a>
                 <a href="./gift-cards.html">Gift Cards</a>
@@ -38,8 +38,8 @@ export const navbar = () => {
                 <a href="./logout.html">Logout</a>
             </div>
         </div>
-        <img src="./assets/wishlist.png" alt="wishlist image" style="width: 25px; height:25px;">
-        <img src="./assets/AddToCart.png" alt="add to cart image" style="width: 25px; height:25px;">
+        <img src="./frontend/assets/wishlist.png" alt="wishlist image" style="width: 25px; height:25px;">
+        <img src="./frontend/assets/AddToCart.png" alt="add to cart image" style="width: 25px; height:25px;">
     </div>
     
         </nav>
@@ -134,12 +134,12 @@ export const footer = () => {
             </select>
           </div>
           <div class="social-icons">
-            <a href="#" id="Facebook"><img src="./assets/facebook.png" alt="facebook image" style="width: 25px;
+            <a href="#" id="Facebook"><img src="./frontend/assets/facebook.png" alt="facebook image" style="width: 25px;
             height: 25px;"></a>
-            <a href="#" id="Twitter"><img src="./assets/twitter.png" alt="twitter image"></a>
-            <a href="#" id="Instagram"><img src="./assets/youtube.png" alt="youTube image"></a>
-            <a href="#" id="YouTube"><img src="./assets/instagram.png" alt="instagram image"></a>
-            <a href="#" is="WhatsApp"><img src="./assets/what'sApp.png" alt="what'sApp image" style="width: 28px;
+            <a href="#" id="Twitter"><img src="./frontend/assets/twitter.png" alt="twitter image"></a>
+            <a href="#" id="Instagram"><img src="./frontend/assets/youtube.png" alt="youTube image"></a>
+            <a href="#" id="YouTube"><img src="./frontend/assets/instagram.png" alt="instagram image"></a>
+            <a href="#" is="WhatsApp"><img src="./frontend/assets/what'sApp.png" alt="what'sApp image" style="width: 28px;
                 height: 28px;"></a>
           </div>
           <div class="copyright">
