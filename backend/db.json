@@ -35,6 +35,24 @@
       "location": "",
       "hint": "",
       "profilePicture": ""
+    },
+    {
+      "id": "f4a4",
+      "name": "swamini",
+      "gender": "female",
+      "email": "swamini@gmail.com",
+      "password": "999"
+    },
+    {
+      "id": "2fda",
+      "name": "Eknath",
+      "gender": "male",
+      "email": "eknath@gmail.com",
+      "password": "eknath",
+      "dob": "",
+      "mobile": "6734536247",
+      "location": "Russia",
+      "hint": ""
     }
   ],
   "login": [
