@@ -28,14 +28,14 @@ export const navbar = () => {
         <div class="dropdown-container">
             <img id="login-icon" src="./frontend/assets/Login1.png" alt="login image" style="width: 25px; height:25px;" onclick="redirectToLogin()">
             <div class="dropdownofProfile" id="dropdown-menu">
-                <a href="./frontend/profile.html">Profile</a>
-                <a href="./orders.html">Orders</a>
-                <a href="./wishlist.html">Wishlist</a>
-                <a href="./gift-cards.html">Gift Cards</a>
-                <a href="./contact-us.html">Contact Us</a>
-                <a href="./saved-addresses.html">Saved Addresses</a>
-                <a href="./edit-profile.html">Edit Profile</a>
-                <a href="./logout.html">Logout</a>
+                <a href="./frontend/profile.html" style="color:gray;">Profile</a>
+                <a href="./orders.html" style="color:gray;">Orders</a>
+                <a href="./wishlist.html" style="color:gray;">Wishlist</a>
+                <a href="./gift-cards.html" style="color:gray;">Gift Cards</a>
+                <a href="./contact-us.html" style="color:gray;">Contact Us</a>
+                <a href="./saved-addresses.html" style="color:gray;">Saved Addresses</a>
+                <a href="./edit-profile.html" style="color:gray;">Edit Profile</a>
+                <a href="./logout.html" style="color:gray;">Logout</a>
             </div>
         </div>
         <img src="./frontend/assets/wishlist.png" alt="wishlist image" id="wishlist-nav" style="width: 25px; height:25px;" onclick="redirectToWishlist()">
@@ -47,10 +47,11 @@ export const navbar = () => {
             <div class="section">
               <h3>New Year Scores</h3>
               <ul>
-                <li>What's New</li>
-                <li>Bestsellers</li>
-                <li>Align Shop</li>
-                <li>Travel Clothes</li>
+              <li><a href="./frontend/dresses.html">What's New</a></li>
+              <li><a href="./frontend/dresses.html">Bestsellers</a></li> 
+              <li><a href="./frontend/dresses.html">Align Shop</a></li> 
+              <li><a href="./frontend/dresses.html">Travel Clothes</a></li>  
+                
               </ul>
             </div>
             <div class="section">

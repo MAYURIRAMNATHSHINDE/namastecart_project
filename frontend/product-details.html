@@ -129,35 +129,90 @@
       padding: 10px 15px;
       cursor: pointer;
     }
+    #add-to-wishlist{
+        border-radius: 6px;
+        border: none;
+        background-color: rgb(195,100,119);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: -2px;
+        width: 200px;
+    }
+    #add-to-cart{ border-radius: 6px;
+        border: none;
+        background-color: rgb(195,100,119);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: -2px;
+        width: 200px;
+
+        
+    }
+    #buy-now{ border-radius: 6px;
+        border: none;
+        background-color: rgb(195,100,119);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: -2px;
+        width: 200px;
+
+    }
+    #size-select{
+        border-radius: 6px;
+        padding: 10px;
+        border: none;
+        background-color: rgb(98, 185, 185);
+    }
+    .product-details-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .product-container{
+        margin-top: 60px;
+        margin-left: -120px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: left;
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div id="navbar">
-    <img src="/path/to/wishlist-icon.png" alt="Wishlist" id="wishlist-nav" />
-    <img src="/path/to/cart-icon.png" alt="Cart" id="cart-nav" />
-  </div>
+    <div id="navbar">
+        <img src="/frontend/assets/wishlist.png" alt="Wishlist" id="wishlist-nav" />
+        <img src="/frontend/assets/AddToCart.png" alt="Cart" id="cart-nav" />
+      </div>
+ <div class="product-details-container">
+     <!-- Navbar -->
 
-  <!-- Product Details -->
-  <div class="product-container">
+<div>
     <h1 id="product-title"></h1>
     <img id="main-image" src="" alt="Product Image" />
-    <p id="product-rating"></p>
-    <p id="product-price"></p>
-    <p id="product-description"></p>
+</div>
+  <!-- Product Details -->
+  <div class="product-container">
+    
+    <p id="product-rating" style="background-color:rgb(240, 239, 239);border: 1px solid rgb(199, 198, 198); width:110px; padding:6px; font-size:19px;color:rgb(28, 107, 107)"></p>
+    <p id="product-price" style="font-size:25px; font-weight:bold; margin-top:-2px"></p>
+    <p id="product-description" style="color: rgb(150, 149, 149);margin-top:-6px;font-size:21px;"></p>
 
     <!-- Size Selection -->
-    <label for="size-select">Select Size:</label>
-    <select id="size-select">
-      <option value="" disabled selected>Select size</option>
-    </select>
+    <label for="size-select"><h3>Select Size:</h3></label>
+    <select id="size-select" style="width: 200px;font-size:16px;color:white">
+      <option value="" disabled selected style="text-align: center;">Select size</option>
+    </select><br>
 
     <!-- Buttons -->
     <button id="add-to-wishlist">Add to Wishlist</button>
     <button id="add-to-cart">Add to Cart</button>
     <button id="buy-now">Buy Now</button>
   </div>
-
+ </div>
+  <script src="./scripts/index.js" type="module"></script>
+  <script src="./scripts/navbar.js"></script>
   <script>
     const productId = 1; // Example product ID
     const wishlist = [];
@@ -224,5 +279,6 @@
       });
     }
   </script>
+ 
 </body>
 </html>
