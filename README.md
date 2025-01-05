@@ -44,4 +44,4 @@ To run this project locally:
 
 1. Clone the repository:
    
-   git clone https://github.com/your-username/NamasteCart.git
+   git clone https://github.com/MAYURIRAMNATHSHINDE/namastecart_project
