@@ -92,6 +92,20 @@
 <script src="./frontend/scripts/index.js" type="module"></script>
 <script src="./frontend/scripts/shutterEffect.js" type="module"></script>
 <script>
+    function redirectToWishlist() {
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        window.location.href = "./frontend/wishlist.html";
+      }
+    
+      // Redirect to Cart page
+      function redirectToCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "./frontend/cart.html";
+      }
+
+      
     function redirectToLogin() {
         window.location.href = "./frontend/login.html"; // Replace with your desired URL
     }

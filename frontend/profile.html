@@ -156,8 +156,8 @@
             };
         
             const loadProfile = async () => {
-                try {
-                    const response = await fetch(`http://localhost:3000/users/${loggedInUserId}`);
+                try {const response = await fetch(`http://localhost:3000/users/${loggedInUserId}`);
+                    
                     console.log("Response Status:", response.status); // Check the status code
                     if (!response.ok) {
                         throw new Error("Failed to fetch profile data. Status code: " + response.status);

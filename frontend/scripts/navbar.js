@@ -38,8 +38,8 @@ export const navbar = () => {
                 <a href="./logout.html">Logout</a>
             </div>
         </div>
-        <img src="./frontend/assets/wishlist.png" alt="wishlist image" style="width: 25px; height:25px;">
-        <img src="./frontend/assets/AddToCart.png" alt="add to cart image" style="width: 25px; height:25px;">
+        <img src="./frontend/assets/wishlist.png" alt="wishlist image" id="wishlist-nav" style="width: 25px; height:25px;" onclick="redirectToWishlist()">
+        <img src="./frontend/assets/AddToCart.png" alt="add to cart image" id="cart-nav" style="width: 25px; height:25px;" onclick="redirectToCart()">
     </div>
     
         </nav>
@@ -56,19 +56,20 @@ export const navbar = () => {
             <div class="section">
               <h3>Women's Clothes</h3>
               <ul>
-                <li>Bras & Underwear</li>
-                <li>Bodysuits</li>
-                <li>Joggers</li>
-                <li>Leggings</li>
+                <li><a href="./frontend/dresses.html">Dresses</a></li>
+                <li><a href="dresses.html">Bodysuits</a></li>
+                <li><a href="dresses.html">Dresses</a></li>
+                <li><a href="dresses.html">Leggings</a></li>
+                <li><a href="dresses.html">Dresses</a></li>
               </ul>
             </div>
             <div class="section">
               <h3>Accessories</h3>
               <ul>
-                <li>Backpacks</li>
-                <li>Bags</li>
-                <li>Belt Bags</li>
-                <li>Yoga Mats</li>
+                <li><a href="dresses.html">Backpacks</a></li>
+                <li><a href="dresses.html">Bags</a></li>
+                <li><a href="dresses.html">Bags</a></li>
+                <li><a href="dresses.html">Yoga Mats</a></li>
               </ul>
             </div>
           </div>`;
@@ -150,3 +151,4 @@ export const footer = () => {
 }
 footer()
 navbar()
+

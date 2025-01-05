@@ -1,0 +1,228 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <style>
+    #checkout-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    #checkout-modal input,
+    #checkout-modal textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-container">
+    <h1 id="product-title"></h1>
+    <img id="main-image" src="" alt="Product Image" />
+    <p id="product-rating"></p>
+    <p id="product-price"></p>
+    <p id="product-description"></p>  -->
+
+    <!-- Size Selection -->
+    <!-- <label for="size-select">Select Size:</label>
+    <select id="size-select">
+      <option value="" disabled selected>Select size</option>
+    </select> -->
+
+    <!-- Buttons -->
+    <!-- <button id="buy-now">Buy Now</button>
+  </div>
+
+  <script>
+
+    const productId = 1; // Example: Fetch dynamically based on URL params
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+    
+        const product = await response.json();
+        displayProduct(product);
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      }
+    });
+    
+    function displayProduct(product) {
+      if (!product) {
+        console.error("Product data is missing!");
+        return;
+      }
+    
+      // Update product details
+      document.getElementById("product-title").textContent = `${product.name}`;
+      document.getElementById("product-rating").textContent = `Rating: ${product.rating} ★`;
+      document.getElementById("product-price").textContent = `₹${product.price}`;
+      document.getElementById("product-description").textContent = `${product.description}`;
+      document.getElementById("main-image").src = product.image;
+    
+      // Populate size options
+      const sizes = product.sizes || [];
+      const sizeDropdown = document.getElementById("size-select");
+      sizes.forEach(size => {
+        const option = document.createElement("option");
+        option.value = size;
+        option.textContent = size;
+        sizeDropdown.appendChild(option);
+      });
+    
+      // Add event listeners
+      document.getElementById("buy-now").addEventListener("click", () => {
+       const selectedSize = document.getElementById("size-select").value;
+       if (!selectedSize) {
+         alert("Please select a size before proceeding to buy.");
+       } else {
+         // Redirect to the Place Order page with product details
+         const productId = 1; // Example ID
+         window.location.href = `place-order.html?productId=${productId}&size=${selectedSize}`;
+       }
+     });
+     
+    }
+    
+    
+      </script> 
+  
+</body>
+</html>
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <style>
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: #f4f4f4;
+    }
+    #navbar img {
+      width: 40px;
+      cursor: pointer;
+    }
+    .product-container {
+      padding: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar">
+    <img src="/path/to/wishlist-icon.png" alt="Wishlist" id="wishlist-nav" />
+    <img src="/path/to/cart-icon.png" alt="Cart" id="cart-nav" />
+  </div>
+
+  <!-- Product Details -->
+  <div class="product-container">
+    <h1 id="product-title"></h1>
+    <img id="main-image" src="" alt="Product Image" />
+    <p id="product-rating"></p>
+    <p id="product-price"></p>
+    <p id="product-description"></p>
+
+    <!-- Size Selection -->
+    <label for="size-select">Select Size:</label>
+    <select id="size-select">
+      <option value="" disabled selected>Select size</option>
+    </select>
+
+    <!-- Buttons -->
+    <button id="add-to-wishlist">Add to Wishlist</button>
+    <button id="add-to-cart">Add to Cart</button>
+    <button id="buy-now">Buy Now</button>
+  </div>
+
+  <script>
+    const productId = 1; // Example product ID
+    const wishlist = [];
+    const cart = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const product = await response.json();
+        displayProduct(product);
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      }
+
+      // Navigate to Wishlist page
+      document.getElementById("wishlist-nav").addEventListener("click", () => {
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        window.location.href = "wishlist.html";
+      });
+
+      // Navigate to Cart page
+      document.getElementById("cart-nav").addEventListener("click", () => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "cart.html";
+      });
+    });
+
+    function displayProduct(product) {
+      document.getElementById("product-title").textContent = product.name;
+      document.getElementById("main-image").src = product.image;
+      document.getElementById("product-rating").textContent = `Rating: ${product.rating} ★`;
+      document.getElementById("product-price").textContent = `₹${product.price}`;
+      document.getElementById("product-description").textContent = product.description;
+
+      // Populate size dropdown
+      product.sizes.forEach(size => {
+        const option = document.createElement("option");
+        option.value = size;
+        option.textContent = size;
+        document.getElementById("size-select").appendChild(option);
+      });
+
+      // Add to Wishlist
+      document.getElementById("add-to-wishlist").addEventListener("click", () => {
+        wishlist.push(product);
+        alert(`${product.name} added to your wishlist!`);
+      });
+
+      // Add to Cart
+      document.getElementById("add-to-cart").addEventListener("click", () => {
+        cart.push(product);
+        alert(`${product.name} added to your cart!`);
+      });
+
+      // Buy Now
+      document.getElementById("buy-now").addEventListener("click", () => {
+        const selectedSize = document.getElementById("size-select").value;
+        if (!selectedSize) {
+          alert("Please select a size before proceeding to buy.");
+          return;
+        }
+        window.location.href = `place-order.html?productId=${productId}&size=${selectedSize}`;
+      });
+    }
+  </script>
+</body>
+</html>

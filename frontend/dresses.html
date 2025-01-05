@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>final Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+        #sort{
+            border: none;
+            padding: 10px;
+        }
+        /*   .product-card {
+        width: 200px;
+        cursor: pointer;
+        text-align: center;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .product-card img {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+      }*/
+
+        #productContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            cursor: pointer;
+            background: white;
+            text-align: center;
+            object-fit: cover;
+            width: 230px;
+            height: 420px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            object-fit: cover;
+            width: 100%;
+           height: 250px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .rating {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .price {
+            margin-top: 10px;
+        }
+
+        .current-price {
+            color: green;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            margin-left: 10px;
+            color: #999;
+        }
+
+        .discount {
+            margin-left: 10px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Product List</h1>
+        <div class="controls">
+            <label>Sort By:</label>
+            <select id="sort">
+                <option value="lowToHigh">Price: Low to High</option>
+                <option value="highToLow">Price: High to Low</option>
+            </select>
+            <label for="priceRange">Filter by Price:</label>
+            <input type="range" id="priceRange" min="0" max="1000" step="50" value="1000">
+            <span id="priceValue">Max: Rs. 1000</span>
+            <label for="discount">Filter by Discount:</label>
+            <input type="number" id="discount" min="0" max="100" placeholder="Min Discount (%)">
+        </div>
+    </header>
+    <main id="productContainer"></main>
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const loadData= async()=>{
+                let response=await fetch("http://localhost:3000/products");
+                let data=await response.json();
+            }
+            /*const products = [
+                { id: 1, name: "Sangria", description: "Printed Kurti", rating: 4.2, reviews: "5.1k", price: 599, originalPrice: 1499, discount: "20% OFF", image: "https://m.media-amazon.com/images/I/713RqAjX44L._AC_UL320_.jpg" },
+                { id: 2, name: "KALINI", description: "Woven Design Straight Kurti", rating: 4.5, reviews: "3.8k", price: 374, originalPrice: 2499, discount: "25% OFF", image: "https://m.media-amazon.com/images/I/81vgGdFl5BL._AC_UL320_.jpg" },
+                { id: 3, name: "Wishlist", description: "Sizes: L", rating: 4.0, reviews: "4.2k", price: 968, originalPrice: 2195, discount: "65% OFF", image: "https://images.meesho.com/images/products/174452103/tsngh_1200.jpg" },
+                { id: 4, name: "Wishlist", description: "Sizes: L", rating: 4.0, reviews: "4.2k", price: 258, originalPrice: 2195, discount: "55% OFF", image: "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg" },
+                // Add more products as needed
+            ];*/
+
+            const productContainer = document.getElementById("productContainer");
+            const sortSelect = document.getElementById("sort");
+            const priceRange = document.getElementById("priceRange");
+            const priceValue = document.getElementById("priceValue");
+            const discountInput = document.getElementById("discount");
+
+            function displayProducts(productsToDisplay) {
+                productContainer.innerHTML = "";
+                productsToDisplay.forEach(product => {
+                    const productCard = `
+                    <div class="card">
+                        <img src="${product.image}" alt="${product.name}" data-id="${product.id}" class="product-image">
+                        <div class="card-body">
+                            <div class="rating">
+                                <span>${product.rating} ★</span>
+                            </div>
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="price">
+                                <span class="current-price">Rs. ${product.price}</span>
+                                <span class="original-price">Rs. ${product.originalPrice}</span>
+                                <span class="discount">(${product.discount})</span>
+                            </div>
+                        </div>
+                    </div>`;
+                    productContainer.insertAdjacentHTML("beforeend", productCard);
+                });
+
+                // Attach click listeners after products are displayed
+                document.querySelectorAll(".product-image").forEach(img => {
+                    img.addEventListener("click", (event) => {
+                        const productId = event.target.getAttribute("data-id");
+                        if (productId) {
+                            window.location.href = `product-details.html?id=${productId}`;
+                        } else {
+                            console.error("Product ID is missing.");
+                        }
+                    });
+                });
+            }
+
+            function sortProducts() {
+                const sortValue = sortSelect.value;
+                let sortedProducts = [...products];
+                if (sortValue === "lowToHigh") {
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                } else if (sortValue === "highToLow") {
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                }
+                displayProducts(sortedProducts);
+            }
+
+            function filterProducts() {
+                const maxPrice = priceRange.value;
+                const minDiscount = discountInput.value || 0;
+
+                // Extract numerical discount and filter
+                const filteredProducts = products.filter(product => {
+                    const discountValue = parseInt(product.discount) || 0; // Extract discount
+                    return product.price <= maxPrice && discountValue >= minDiscount;
+                });
+
+                displayProducts(filteredProducts);
+            }
+
+            sortSelect.addEventListener("change", sortProducts);
+            priceRange.addEventListener("input", () => {
+                priceValue.textContent = `Max: Rs. ${priceRange.value}`;
+                filterProducts();
+            });
+            discountInput.addEventListener("input", filterProducts);
+
+            // Initial display
+            displayProducts(products);
+
+        });
+
+        // Add click listeners to images
+        document.querySelectorAll(".product-image").forEach(img => {
+            img.addEventListener("click", (event) => {
+                const productId = event.target.getAttribute("data-id");
+                if (productId) {
+                    window.location.href = `product-details.html?id=${productId}`;
+                } else {
+                    console.error("Product ID is missing.");
+                }
+            });
+        });
+    </script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const productContainer = document.getElementById("productContainer");
+            const sortSelect = document.getElementById("sort");
+            const priceRange = document.getElementById("priceRange");
+            const priceValue = document.getElementById("priceValue");
+            const discountInput = document.getElementById("discount");
+            let products = [];
+        
+            const displayProducts = (productsToDisplay) => {
+                productContainer.innerHTML = "";
+                productsToDisplay.forEach(product => {
+                    const productCard = `
+                        <div class="card">
+                            <img src="${product.image}" alt="${product.name}" data-id="${product.id}" class="product-image">
+                            <div class="card-body">
+                                <div class="rating">
+                                    <span>${product.rating} ★</span>
+                                </div>
+                                <h3>${product.name}</h3>
+                                <p>${product.description}</p>
+                                <div class="price">
+                                    <span class="current-price">Rs. ${product.price}</span>
+                                    <span class="original-price">Rs. ${product.originalPrice}</span>
+                                    <span class="discount">(${product.discount})</span>
+                                </div>
+                            </div>
+                        </div>`;
+                    productContainer.insertAdjacentHTML("beforeend", productCard);
+                });
+                attachImageClickListeners();
+            };
+        
+            const attachImageClickListeners = () => {
+                document.querySelectorAll(".product-image").forEach(img => {
+                    img.addEventListener("click", (event) => {
+                        const productId = event.target.getAttribute("data-id");
+                        //window.location.href = productId ? `product-details.html?id=${productId}` : console.error("Product ID is missing.");
+                        window.location.href = `product-details.html?id=${productId}`;
+                    });
+                });
+            };
+        
+            const loadData = async () => {
+                try {
+                    const response = await fetch("http://localhost:3000/products");
+                    products = await response.json();
+                } catch (error) {
+                    console.error("Error fetching products. Loading fallback data.", error);
+                    products = fallbackProducts;
+                } finally {
+                    displayProducts(products);
+                }
+            };
+        
+            const sortProducts = () => {
+                const sortValue = sortSelect.value;
+                let sortedProducts = [...products];
+                if (sortValue === "lowToHigh") sortedProducts.sort((a, b) => a.price - b.price);
+                if (sortValue === "highToLow") sortedProducts.sort((a, b) => b.price - a.price);
+                displayProducts(sortedProducts);
+            };
+        
+            const filterProducts = () => {
+                const maxPrice = priceRange.value;
+                const minDiscount = discountInput.value || 0;
+                const filteredProducts = products.filter(product => {
+                    const discountValue = parseInt(product.discount) || 0;
+                    return product.price <= maxPrice && discountValue >= minDiscount;
+                });
+                displayProducts(filteredProducts);
+            };
+        
+            sortSelect.addEventListener("change", sortProducts);
+            priceRange.addEventListener("input", () => {
+                priceValue.textContent = `Max: Rs. ${priceRange.value}`;
+                filterProducts();
+            });
+            discountInput.addEventListener("input", filterProducts);
+        
+            loadData();
+        });
+        
+    </script>
+
+</body>
+
+
+</html>

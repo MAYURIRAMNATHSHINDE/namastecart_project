@@ -117,32 +117,99 @@
       "price": 599,
       "originalPrice": 1499,
       "discount": "20% OFF",
-      "image": "https://m.media-amazon.com/images/I/713RqAjX44L._AC_UL320_.jpg"
+      "image": "/frontend/assets/Women/WOMEN.jpg",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
     },
     {
       "id": "2",
-      "name": "KALINI",
+      "name": "KALINI Bodysuit",
       "description": "Woven Design Straight Kurti",
       "rating": 4.5,
       "reviews": "3.8k",
-      "price": 374,
-      "originalPrice": 2499,
-      "discount": "25% OFF",
-      "image": "https://m.media-amazon.com/images/I/81vgGdFl5BL._AC_UL320_.jpg"
+      "price": 1600,
+      "originalPrice": 2300,
+      "discount": "45% OFF",
+      "image": "/frontend/assets/Women/img2.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
     },
     {
       "id": "3",
-      "name": "Wishlist",
-      "description": "Sizes: L",
+      "name": "jacket",
+      "description": "Pink jacket for girls",
       "rating": 4,
       "reviews": "4.2k",
-      "price": 968,
-      "originalPrice": 2195,
-      "discount": "65% OFF",
-      "image": "https://images.meesho.com/images/products/174452103/tsngh_1200.jpg"
+      "price": 520,
+      "originalPrice": 680,
+      "discount": "46% OFF",
+      "image": "/frontend/assets/Women/img1.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
     },
     {
       "id": "4",
+      "name": "Skurt",
+      "description": "light weight skurt",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 258,
+      "originalPrice": 2195,
+      "discount": "55% OFF",
+      "image": "/frontend/assets/Women/img4.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "5",
+      "name": "Wishlist",
+      "description": "body suit,high quality",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 1600,
+      "originalPrice": 1900,
+      "discount": "10% OFF",
+      "image": "/frontend/assets/Women/coats-4.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "6",
       "name": "Wishlist",
       "description": "Sizes: L",
       "rating": 4,
@@ -150,10 +217,39 @@
       "price": 258,
       "originalPrice": 2195,
       "discount": "55% OFF",
-      "image": "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg"
+      "image": "/frontend/assets/Women/coats1.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
     },
     {
-      "id": "4",
+      "id": "7",
+      "name": "Body Suit",
+      "description": "Sizes: L",
+      "rating": 4,
+      "reviews": "4.2k",
+      "price": 1900,
+      "originalPrice": 2500,
+      "discount": "35% OFF",
+      "image": "/frontend/assets/Women/img5.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "8",
       "name": "Wishlist",
       "description": "Sizes: L",
       "rating": 4,
@@ -161,7 +257,96 @@
       "price": 258,
       "originalPrice": 2195,
       "discount": "55% OFF",
-      "image": "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg"
+      "image": "/frontend/assets/Women/jacket-2.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "9",
+      "name": "Branded T-shirt",
+      "description": "Sizes: XL",
+      "rating": 3.6,
+      "reviews": "4.2k",
+      "price": 380,
+      "originalPrice": 460,
+      "discount": "20% OFF",
+      "image": "/frontend/assets/Women/T-shirt-img1.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "10",
+      "name": "Short Skurt",
+      "description": "Sizes: L",
+      "rating": 3.9,
+      "reviews": "4.2k",
+      "price": 630,
+      "originalPrice": 1290,
+      "discount": "56% OFF",
+      "image": "/frontend/assets/Women/skirts-5.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "11",
+      "name": "Stylish Jacket",
+      "description": "Sizes: L",
+      "rating": 5,
+      "reviews": "3.6k",
+      "price": 960,
+      "originalPrice": 1500,
+      "discount": "50% OFF",
+      "image": "/frontend/assets/Women/jacket-5.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "brand": "Rustorange",
+      "careInstructions": "Machine wash cold, tumble dry low."
+    },
+    {
+      "id": "12",
+      "name": "White Jacket",
+      "description": "Sizes: XL",
+      "rating": 4.9,
+      "reviews": "4.2k",
+      "price": 450,
+      "originalPrice": 500,
+      "discount": "10% OFF",
+      "image": "/frontend/assets/Women/jacket-1.webp",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Silk + Waterproof",
+      "brand": "Rustorange",
+      "careInstructions": "Don't make hard wash."
     }
   ]
 }
