@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # NamasteCart
 
 NamasteCart is an e-commerce website developed using **HTML**, **CSS**, and **JavaScript**. This project allows users to browse various product categories, add products to their wishlist or cart, and place orders. It also supports user authentication for login and signup.
@@ -43,8 +43,5 @@ NamasteCart is an e-commerce website developed using **HTML**, **CSS**, and **Ja
 To run this project locally:
 
 1. Clone the repository:
-   ```bash
+   
    git clone https://github.com/your-username/NamasteCart.git
-=======
-
->>>>>>> 0483a5189731def7c730b495f806e32556820a49
