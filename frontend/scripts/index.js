@@ -1,13 +1,34 @@
-import { navbar,footer } from "./navbar.js";
+import { navbar, footer } from "./frontend/navbar.js";
 
-let Header=document.querySelector(".header");
-Header.innerHTML=navbar()
-let footerCont=document.querySelector(".footer-cont");
-footerCont.innerHTML=footer();
 
+
+// let Header=document.querySelector(".Header");
+// Header.innerHTML=navbar()
+// let footerCont=document.querySelector(".footer-cont");
+// footerCont.innerHTML=footer();
+
+//navbar()
+
+document.addEventListener("DOMContentLoaded", () => {
+    const Header = document.querySelector(".Header");
+    if (Header) {
+        Header.innerHTML = navbar(); // Assuming `navbar` is a function from "navbar.js"
+    } else {
+        console.error("Header element not found.");
+    }
+
+    const footerCont = document.querySelector(".footer-cont");
+    if (footerCont) {
+        footerCont.innerHTML = footer(); // Assuming `footer` is a function from "navbar.js"
+    } else {
+        console.error("Footer container element not found.");
+    }
+});
+
+ 
+  
 // ////////////////////////// Login Page ////////////////////////
-
-const loginIcon = document.getElementById('login-icon');
+const loginIcon = document.querySelector('#login-icon');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
         // Show the dropdown on mouseover

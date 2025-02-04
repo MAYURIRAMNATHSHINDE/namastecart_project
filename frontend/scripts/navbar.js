@@ -1,6 +1,5 @@
 export const navbar = () => {
-  return `
-       <div class="empty">
+  return `<div class="empty">
             <p>Members lace up our newest run-to-train shoe first, starting January 2—only on the app.<u>Download the
                     App</u></p>
         </div>
@@ -74,7 +73,8 @@ export const navbar = () => {
               </ul>
             </div>
           </div>`;
-}
+};
+
 
 
 export const footer = () => {
@@ -149,7 +149,7 @@ export const footer = () => {
           </div>
         </div>
       </footer> `;
-}
-footer()
+};
 navbar()
+footer()
 

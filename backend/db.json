@@ -31,9 +31,9 @@
       "email": "mayuri@gmail.com",
       "password": "123456",
       "dob": "",
-      "mobile": "",
-      "location": "",
-      "hint": "",
+      "mobile": "9879869857",
+      "location": "djhfgjhdsg",
+      "hint": "fgfd",
       "profilePicture": ""
     },
     {
@@ -137,7 +137,7 @@
       "price": 1600,
       "originalPrice": 2300,
       "discount": "45% OFF",
-      "image": "/frontend/assets/Women/img2.webp",
+      "image": "https://raw.githubusercontent.com/MAYURIRAMNATHSHINDE/namastecart_project/refs/heads/main/frontend/assets/Women/coats-3.webp",
       "sizes": [
         "S",
         "M",

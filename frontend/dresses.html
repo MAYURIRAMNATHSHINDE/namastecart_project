@@ -113,112 +113,7 @@
         </div>
     </header>
     <main id="productContainer"></main>
-
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const loadData= async()=>{
-                let response=await fetch("http://localhost:3000/products");
-                let data=await response.json();
-            }
-            /*const products = [
-                { id: 1, name: "Sangria", description: "Printed Kurti", rating: 4.2, reviews: "5.1k", price: 599, originalPrice: 1499, discount: "20% OFF", image: "https://m.media-amazon.com/images/I/713RqAjX44L._AC_UL320_.jpg" },
-                { id: 2, name: "KALINI", description: "Woven Design Straight Kurti", rating: 4.5, reviews: "3.8k", price: 374, originalPrice: 2499, discount: "25% OFF", image: "https://m.media-amazon.com/images/I/81vgGdFl5BL._AC_UL320_.jpg" },
-                { id: 3, name: "Wishlist", description: "Sizes: L", rating: 4.0, reviews: "4.2k", price: 968, originalPrice: 2195, discount: "65% OFF", image: "https://images.meesho.com/images/products/174452103/tsngh_1200.jpg" },
-                { id: 4, name: "Wishlist", description: "Sizes: L", rating: 4.0, reviews: "4.2k", price: 258, originalPrice: 2195, discount: "55% OFF", image: "https://m.media-amazon.com/images/I/71DtCd3WpmL._AC_UL320_.jpg" },
-                // Add more products as needed
-            ];*/
-
-            const productContainer = document.getElementById("productContainer");
-            const sortSelect = document.getElementById("sort");
-            const priceRange = document.getElementById("priceRange");
-            const priceValue = document.getElementById("priceValue");
-            const discountInput = document.getElementById("discount");
-
-            function displayProducts(productsToDisplay) {
-                productContainer.innerHTML = "";
-                productsToDisplay.forEach(product => {
-                    const productCard = `
-                    <div class="card">
-                        <img src="${product.image}" alt="${product.name}" data-id="${product.id}" class="product-image">
-                        <div class="card-body">
-                            <div class="rating">
-                                <span>${product.rating} ★</span>
-                            </div>
-                            <h3>${product.name}</h3>
-                            <p>${product.description}</p>
-                            <div class="price">
-                                <span class="current-price">Rs. ${product.price}</span>
-                                <span class="original-price">Rs. ${product.originalPrice}</span>
-                                <span class="discount">(${product.discount})</span>
-                            </div>
-                        </div>
-                    </div>`;
-                    productContainer.insertAdjacentHTML("beforeend", productCard);
-                });
-
-                // Attach click listeners after products are displayed
-                document.querySelectorAll(".product-image").forEach(img => {
-                    img.addEventListener("click", (event) => {
-                        const productId = event.target.getAttribute("data-id");
-                        if (productId) {
-                            window.location.href = `product-details.html?id=${productId}`;
-                        } else {
-                            console.error("Product ID is missing.");
-                        }
-                    });
-                });
-            }
-
-            function sortProducts() {
-                const sortValue = sortSelect.value;
-                let sortedProducts = [...products];
-                if (sortValue === "lowToHigh") {
-                    sortedProducts.sort((a, b) => a.price - b.price);
-                } else if (sortValue === "highToLow") {
-                    sortedProducts.sort((a, b) => b.price - a.price);
-                }
-                displayProducts(sortedProducts);
-            }
-
-            function filterProducts() {
-                const maxPrice = priceRange.value;
-                const minDiscount = discountInput.value || 0;
-
-                // Extract numerical discount and filter
-                const filteredProducts = products.filter(product => {
-                    const discountValue = parseInt(product.discount) || 0; // Extract discount
-                    return product.price <= maxPrice && discountValue >= minDiscount;
-                });
-
-                displayProducts(filteredProducts);
-            }
-
-            sortSelect.addEventListener("change", sortProducts);
-            priceRange.addEventListener("input", () => {
-                priceValue.textContent = `Max: Rs. ${priceRange.value}`;
-                filterProducts();
-            });
-            discountInput.addEventListener("input", filterProducts);
-
-            // Initial display
-            displayProducts(products);
-
-        });
-
-        // Add click listeners to images
-        document.querySelectorAll(".product-image").forEach(img => {
-            img.addEventListener("click", (event) => {
-                const productId = event.target.getAttribute("data-id");
-                if (productId) {
-                    window.location.href = `product-details.html?id=${productId}`;
-                } else {
-                    console.error("Product ID is missing.");
-                }
-            });
-        });
-    </script> -->
-
+ 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const productContainer = document.getElementById("productContainer");
@@ -230,20 +125,20 @@
         
             const displayProducts = (productsToDisplay) => {
                 productContainer.innerHTML = "";
-                productsToDisplay.forEach(product => {
+                productsToDisplay.forEach(products => {
                     const productCard = `
                         <div class="card">
-                            <img src="${product.image}" alt="${product.name}" data-id="${product.id}" class="product-image">
+                            <img src="${products.image}" alt="${products.name}" data-id="${products.id}" class="product-image">
                             <div class="card-body">
                                 <div class="rating">
-                                    <span>${product.rating} ★</span>
+                                    <span>${products.rating} ★</span>
                                 </div>
-                                <h3>${product.name}</h3>
-                                <p>${product.description}</p>
+                                <h3>${products.name}</h3>
+                                <p>${products.description}</p>
                                 <div class="price">
-                                    <span class="current-price">Rs. ${product.price}</span>
-                                    <span class="original-price">Rs. ${product.originalPrice}</span>
-                                    <span class="discount">(${product.discount})</span>
+                                    <span class="current-price">Rs. ${products.price}</span>
+                                    <span class="original-price">Rs. ${products.originalPrice}</span>
+                                    <span class="discount">(${products.discount})</span>
                                 </div>
                             </div>
                         </div>`;
@@ -255,10 +150,14 @@
             const attachImageClickListeners = () => {
                 document.querySelectorAll(".product-image").forEach(img => {
                     img.addEventListener("click", (event) => {
-                        const productId = event.target.getAttribute("data-id");
-                        //window.location.href = productId ? `product-details.html?id=${productId}` : console.error("Product ID is missing.");
-                        window.location.href = `product-details.html?id=${productId}`;
+                        const productId = img.getAttribute("data-id"); // Use `img` directly
+                        if (productId) {
+                            window.location.href = `product-details.html?id=${productId}`;
+                        } else {
+                            console.error("Product ID is missing.");
+                        }
                     });
+                    
                 });
             };
         
@@ -305,6 +204,6 @@
     </script>
 
 </body>
-
+<script src="./scripts/navbar.js" type="module"></script>
 
 </html>
