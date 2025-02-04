@@ -157,7 +157,7 @@
       "price": 520,
       "originalPrice": 680,
       "discount": "46% OFF",
-      "image": "/frontend/assets/Women/img1.webp",
+      "image": "https://raw.githubusercontent.com/MAYURIRAMNATHSHINDE/namastecart_project/refs/heads/main/frontend/assets/Women/coats-3.webp",
       "sizes": [
         "S",
         "M",
